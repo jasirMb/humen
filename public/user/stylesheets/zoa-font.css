@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'zoa';
+    src: url('../fonts/zoa.ttf') format('truetype');    
+    font-weight: normal;
+    font-style: normal;
+}
+[class^="zoa-icon-"],
+[class*=" zoa-icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+[class^="zoa-icon-"]:before, [class*=" zoa-icon-"]:before {
+    font-family: 'zoa' !important;
+}
+.zoa-icon-360:before {
+    content: "\e900";
+}
+.zoa-icon-address:before {
+    content: "\e901";
+}
+.zoa-icon-arrow-down-bold:before {
+    content: "\e902";
+}
+.zoa-icon-arrow-down-thin:before {
+    content: "\e903";
+}
+.zoa-icon-cart:before {
+    content: "\e904";
+}
+.zoa-icon-change-pass:before {
+    content: "\e905";
+}
+.zoa-icon-filter:before {
+    content: "\e906";
+}
+.zoa-icon-free-ship:before {
+    content: "\e907";
+}
+.zoa-icon-heart:before {
+    content: "\e908";
+}
+.zoa-icon-log-out:before {
+    content: "\e909";
+}
+.zoa-icon-order:before {
+    content: "\e90a";
+}
+.zoa-icon-play:before {
+    content: "\e90b";
+}
+.zoa-icon-quick-view:before {
+    content: "\e90c";
+}
+.zoa-icon-refund:before {
+    content: "\e90d";
+}
+.zoa-icon-right-arrow:before {
+    content: "\e90e";
+}
+.zoa-icon-search:before {
+    content: "\e90f";
+}
+.zoa-icon-secure:before {
+    content: "\e910";
+}
+.zoa-icon-sort:before {
+    content: "\e911";
+}
+.zoa-icon-user:before {
+    content: "\e912";
+}
+.zoa-icon-user-detail:before {
+    content: "\e913";
+}
+.zoa-icon-view-2:before {
+    content: "\e914";
+}
+.zoa-icon-view-3:before {
+    content: "\e915";
+}
+.zoa-icon-warranty:before {
+    content: "\e916";
+}
