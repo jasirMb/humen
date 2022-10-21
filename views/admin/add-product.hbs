@@ -13,7 +13,7 @@
 
   
 <div class="col-12 grid-margin stretch-card">
-    <img src="https://cdn.learnwoo.com/wp-content/uploads/2016/11/Adding-Products_Cropped.png" width="750px" height="800px" alt="">
+    <img class="mt-5" src="https://cdn.learnwoo.com/wp-content/uploads/2016/11/Adding-Products_Cropped.png" width="450px" height="400px" alt="">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Basic form elements</h4>
@@ -21,31 +21,32 @@
                     <form action="/admin/add-product" enctype="multipart/form-data" method="post" class="forms-sample mt-5">
                       <div class="form-group col-5">
                         <label for="exampleInputName1">Name</label>
-                        <input type="text" name="Name" class="form-control" id="exampleInputName1" placeholder="Name">
+                        <input type="text" name="Name" class="form-control" id="exampleInputName1" placeholder="Name" required="">
                       </div>
                       <div class="form-group col-5">
                         <label for="exampleInputEmail3">Brand Name</label>
-                        <input type="text" name="Brand" class="form-control" id="exampleInputEmail3" placeholder="Brand">
+                        <input type="text" name="Brand" class="form-control" id="exampleInputEmail3" placeholder="Brand" required="">
                       </div>
                       <div class="form-group col-5">
                         <label for="exampleInputPassword4">Quantity</label>
-                        <input type="number" name="Quantity" class="form-control" id="exampleInputPassword4" placeholder="QTY">
+                        <input type="number" name="Quantity" class="form-control" id="exampleInputPassword4" placeholder="QTY" required="">
                       </div>
                       <div class="form-group col-3">
                         <label for="exampleSelectGender">Category</label>
-                        <select class="form-control" name="Category" id="exampleSelectGender">
-                          <option>Jeans</option>
-                          <option>Shirt</option>
-                          <option>T-shirt</option>
-                          <option>Shorts</option>
+                       
+                        <select class="form-control text-dark" name="Category" id="exampleSelectGender" required="">
+                           {{#each categorys}}
+                          <option >{{this.category}}</option>
+                        {{/each}}
+                          
                         </select>
                       </div>
                     <div class="form-group">
-                        <label>Image</label><br>
-                        <input type="file" name="Image" class="form-control-file mt-2" id="Image">
+                        <label for="form-control-file">Image</label><br>
+                        <input type="file" name="productImage" class="form-control-file mt-2" id="Image" multiple>
                     </div>    <div class="form-group col-5">
                         <label for="exampleInputCity1">Price</label>
-                        <input type="number" name="Price" class="form-control" id="exampleInputCity1" placeholder="Amount">
+                        <input type="number" name="Price" class="form-control" id="exampleInputCity1" placeholder="Amount" required="">
                       </div>
                      
                       <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>

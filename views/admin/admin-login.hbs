@@ -24,6 +24,9 @@
                         <input type="email" name="adminEmail" class="form-control form-control-lg" id="exampleInputEmail1"
                             placeholder="Username">
                     </div>
+                    {{#if loginerr}}
+                    <h4 class="text-danger">invalid credentials</h4>
+                    {{/if}}
                     <div class="form-group">
                         <input type="password" name="Password" class="form-control form-control-lg" id="exampleInputPassword1"
                             placeholder="Password">

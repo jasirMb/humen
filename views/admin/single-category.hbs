@@ -1,0 +1,53 @@
+
+
+
+
+<link rel="stylesheet" href="/admin/stylesheets/style.css"> 
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                   
+                    <button class="btn btn-dark mt-5"><h2>Products in {{checkcate}}</h2>  
+                    </button>
+                  
+                   
+                    <table class="table table-striped mt-5">
+                      <thead>
+                        <tr>
+                          <th> Image </th>
+                          <th> Name </th>
+                          <th> Brand </th>
+                          <th> Quantity</th>
+                          <th> Category </th>
+                          <th> Price </th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each selectedProducts}} 
+                        <tr>
+                            <td class="py-1">
+                                <img src="/product-images/{{this._id}}.jpg" alt="image" />
+                            </td>
+                            <td>{{this.Name}}</td>
+                            <td> {{this.Brand}} </td>
+                            <td>{{this.Quantity}}</td> 
+                            <td>{{this.Category}}</td>
+                            <td>{{this.Price}}</td>
+                            
+                        </tr>
+                          {{/each}}

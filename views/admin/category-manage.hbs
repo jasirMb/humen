@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="/admin/stylesheets/style.css">
+
+<div class="col-lg-6 grid-margin stretch-card mt-5 mb-5">
+  <img class="mt-5" src="https://cdn.learnwoo.com/wp-content/uploads/2016/11/Adding-Products_Cropped.png" width="450px"
+    height="400px" alt="">
+  <div class="card mt-5">
+    <div class="card-body">
+
+      <h2> Add Category
+        <h2>
+          {{#if categoryErr}}
+          <h5 class="text-danger">Category already Exist !</h5>
+          {{/if}}
+          {{#if nonEmpty}}
+          <h5 class="text-danger"> ACTION FAILED!! Category contains products </h5>
+          {{/if}}
+          <form action="/admin/add-category" method="post">
+            <div style="width:311px ;" class="input-group mb-5" >
+              <input type="text" class="form-control rounded " placeholder="enter category name" name="category" required=""> 
+              <button type="submit" class="btn btn-outline-primary btn-sm">add category</button>
+            </div>
+          </form>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Products</th>
+                <th>Remove</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {{#each categorys}}
+              <tr>
+                <td>{{this.category}}</td>
+                <td><a href="/admin/single-category/{{this.category}}"><button class="btn btn-info btn-sm">products</button></a>  </td>
+                <td><button class="btn btn-danger btn-sm" onclick="categoryAlert('{{this._id}}');">remove</button>  </td>
+               
+
+
+
+
+
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  function categoryAlert(categoryId){
+   Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#d33',
+  cancelButtonColor: '#3085d6',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result)=>{
+    $.ajax({
+      url:'/admin/delete-category/'+categoryId,      
+      method:'post',
+      success:(response)=>{
+       if(result.isConfirmed){
+       Swal.fire({
+          
+          icon: 'success',
+          title: 'category deleted successfully',
+          showConfirmButton: false,
+          })
+          setTimeout(()=>{
+            location.reload()
+          },800)
+       }
+      }
+    })
+
+})
+  }
+   
+</script>

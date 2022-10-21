@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="/admin/stylesheets/style.css"> 
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<div class="col-lg-10  grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                   
+                    <p class="card-description mt-5"><h1>USER MANAGEMENT</h1>  
+                    </p>
+                    
+                   
+                    <table class="table table-striped mt-5">
+                      <thead>
+                        <tr>
+                          <th> Image </th>
+                          <th> Name </th>
+                          <th> Email </th>
+                          <th> Phone No </th>
+                           <th> Status </th>
+                          <th> Options </th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each users}} 
+                        <tr>
+                            <td class="py-1">
+                                <img src="/product-images/{{this._id}}.jpg" alt="image" />
+                            </td>
+                            <td>{{this.userName}}</td>
+                            <td> {{this.userEmail}} </td>
+                            <td>{{this.phoneNo}}</td>
+                            <td>{{#if this.Status}}
+                             <label class="badge badge-success" >ACTIVE</label>
+                            {{else}}
+                            <label class="badge badge-danger">BLOCKED</label>
+                            {{/if}}
+                            </td>
+                            
+                            
+                            <td>{{#if this.Status}}
+                              <a href="/admin/block-user/{{this._id}}" class="btn btn-danger btn-sm"
+                              >BLOCK</a>
+                              {{else}}
+                              <a href="/admin/unBlock-user/{{this._id}}" class="btn btn-success btn-sm"
+                              >UNBLOCK</a>
+                              {{/if}}
+                              </td>
+                        </tr>
+                          {{/each}}

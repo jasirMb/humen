@@ -1,5 +1,5 @@
 const { adminCollection } = require('../config/collection');
-const productCollection = require('../schema/productSchema')
+const productCollection = require('../models/productSchema')
 
 
 
@@ -26,7 +26,7 @@ module.exports = {
     },
     allProducts : () =>{
             return new Promise(async (resolve, reject) => {
-                productCollection.find().lean().then((data)=>{
+               await productCollection.find().lean().then((data)=>{
                     resolve(data)
                 })
               
@@ -34,11 +34,16 @@ module.exports = {
             })
     },
     getProductDetails : (proId)=>{
-        return new Promise((resolve,reject)=>{
-          productCollection.findOne({_id:(proId)}).then((product)=>{
+        return new Promise(async(resolve,reject)=>{
+          await productCollection.findOne({_id:(proId)}).lean().then((product)=>{
                 resolve(product)
             })
         })
+    },
+    updateProduct : (proId,productData) => {
+                console.log(proId,productData);
     }
+
+    
     
 }

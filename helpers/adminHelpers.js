@@ -1,4 +1,4 @@
-const adminCollection = require('../schema/adminSchema')
+const adminCollection = require('../models/adminSchema')
 const { response } = require('express')
 module.exports = {
 

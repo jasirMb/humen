@@ -111,34 +111,16 @@
 							</div>
 						</div>
 					</li>
-					<li class="relative dropdown">
-						<a href="#" class="link-menu white delay03 uppercase">PAGES</a>
+					<li class="relative">
+						{{#if user}}
+						<a href="/logout" class="link-menu white delay03 uppercase">LOGOUT</a>
 						<figure class="line absolute delay03"></figure>
-						<div class="dropdown-menu mega-menu-main absolute space_30 space_top_bot_50 text-left">
-							<div class="container_15">
-								<div class="row">
-									<div class="col-lg-6 col-md-6 border-right">
-										<ul class="clear-space capital lv1">
-											<li class="margin_bottom_20 space_left_20 uppercase">page set 1</li>
-											<li class="menu-child-font"><a href="About_page_1.html">about page 1</a></li>
-											<li class="menu-child-font"><a href="About_page_2.html">about page 2</a></li>
-											<li class="menu-child-font"><a href="FAQ.html">FAQs page</a></li>
-											<li class="menu-child-font"><a href="404.html">404 page</a></li>
-										</ul>
-									</div>
-									<div class="col-lg-6 col-md-6">
-										<ul class="capital lv1 space_left_30">
-											<li class="margin_bottom_20 space_left_20 uppercase">page set 2</li>
-											<li class="menu-child-font"><a href="cart_page.html">cart page</a></li>
-											<li class="menu-child-font"><a href="wishlist_page.html">wishlist page</a></li>
-											<li class="menu-child-font"><a href="login_page.html">login/register page</a></li>
-											<li class="menu-child-font"><a href="#">other page - comming soon</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
+						{{else}}
+						<a href="/login" class="link-menu white delay03 uppercase">LOGIN</a>
+						<figure class="line absolute delay03"></figure>
+						{{/if}}
 					</li>
+					
 					<li class="relative">
 						<a href="Contact.html" class="link-menu white delay03 uppercase">CONTACT</a>
 						<figure class="line absolute delay03"></figure>
@@ -150,7 +132,7 @@
 			{{/if}}
 			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-7 text-right icon-main">
 				
-				<a href="/login" class="link-menu white delay03 container_20 inline-block hidden-xs hidden-sm" id="btn-login"><i class="zoa-icon-user"></i></a>
+				<a href="/profile" class="link-menu white delay03 container_20 inline-block hidden-xs hidden-sm" id="btn-login"><i class="zoa-icon-user"></i></a>
 				<a href="#" class="link-menu white delay03 container_20 inline-block hidden-xs hidden-sm" id="btn-search"><i class="ti-search"></i></a>
 				
 				
