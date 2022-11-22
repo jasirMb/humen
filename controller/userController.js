@@ -15,12 +15,12 @@ const bcrypt = require('bcrypt')
 const otpGenerator = require('otp-generator');
 const Razorpay = require('razorpay')
 
-const accountSid = process.env.twilio_id
-const authToken = process.env.twilio_token;
+const accountSid = process.env.TWILIO_ID
+const authToken = process.env.TWILIO_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 const instance = new Razorpay({
-    key_id: process.env.key_id,
-    key_secret: process.env.key_secret,
+    key_id: process.env.KEY_ID,
+    key_secret: process.env.KEY_SECRET,
 })
 
 

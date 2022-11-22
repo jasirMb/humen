@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 
-mongoose.connect(process.env.moongose);
+mongoose.connect(process.env.MOONGOSE);
 
 
 mongoose.connection
