@@ -1,8 +1,9 @@
 const express = require('express');
-const client = require('twilio')('ACf82f15197ceeb3f9531d32e4d9a66978', 'b213b246e6760dd76dc10e8d3393ca52', {
-    lazyLoading: true
-});
+// const client = require('twilio')('ACf82f15197ceeb3f9531d32e4d9a66978', 'b213b246e6760dd76dc10e8d3393ca52', {
+//     lazyLoading: true
+// });
 
+require('dotenv').config()
 const bodyParser = require('body-parser')
 const app = express();
 const path = require('path');
@@ -13,9 +14,10 @@ const db = require('./config/connection')
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session')
-
+const Handlebars = require("handlebars")
 const Swal = require('sweetalert2')
-const noCache = require('nocache')
+const noCache = require('nocache');
+const createError = require('http-errors');
 // const multer = require('multer')
 
 
@@ -44,7 +46,7 @@ app.engine('hbs', hbs.engine({ extname: 'hbs', defaultLayout: 'layout', layoutsD
 // });
 // const upload = multer({ storage: storage })
 // app.use(upload.array('productImage', 3), function (req, res, next) {
-    // next()
+// next()
 // })
 
 
@@ -62,12 +64,55 @@ app.use(noCache())
 
 
 
-app.listen(3500, () => {
+app.listen(process.env.port, () => {
     console.log("server created");
 })
 
 
 app.use('/', userRouter)
 app.use('/admin', adminRouter)
+
+
+Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
+
+    switch (operator) {
+        case '==':
+            return (v1 == v2) ? options.fn(this) : options.inverse(this);
+        case '===':
+            return (v1 === v2) ? options.fn(this) : options.inverse(this);
+        case '!=':
+            return (v1 != v2) ? options.fn(this) : options.inverse(this);
+        case '!==':
+            return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+        case '<':
+            return (v1 < v2) ? options.fn(this) : options.inverse(this);
+        case '<=':
+            return (v1 <= v2) ? options.fn(this) : options.inverse(this);
+        case '>':
+            return (v1 > v2) ? options.fn(this) : options.inverse(this);
+        case '>=':
+            return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+        case '&&':
+            return (v1 && v2) ? options.fn(this) : options.inverse(this);
+        case '||':
+            return (v1 || v2) ? options.fn(this) : options.inverse(this);
+        default:
+            return options.inverse(this);
+    }
+});
+Handlebars.registerHelper("inc", function(value, options)
+{
+    return parseInt(value) + 1;
+});
+// 404 rendering
+app.use(function (req, res, next) {
+    next(createError(404));
+});
+
+app.use(function (err, req, res, next) {
+    res.status(err.status || 500);
+    console.log(err);
+    res.render('user/404');
+});
 
 module.exports = app

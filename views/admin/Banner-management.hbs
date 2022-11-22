@@ -1,0 +1,170 @@
+<link rel="stylesheet" href="/admin/stylesheets/style.css">
+
+<div class="col-lg-6 grid-margin stretch-card mt-5 mb-5">
+  <img class="mt-5" src="https://cdn.learnwoo.com/wp-content/uploads/2016/11/Adding-Products_Cropped.png"
+    width="450px" height="400px" alt="">
+  <div class="card mt-5">
+    <div class="card-body">
+
+      <h2> Banner management</h2>
+        
+          <form action="/admin/add-banner" method="post" enctype="multipart/form-data">
+            <div style="width:311px ;" class="input-group mb-2">
+              <input type="text" class="form-control rounded " placeholder="enter category name" name="banner"
+                required="">
+                <button type="submit" class="btn btn-outline-primary btn-sm">add banner</button>
+              
+            
+              <input type="file" name="bannerImage"  class="form-control-file mt-2"
+                id="Image" multiple>
+            </div>
+            
+                 
+          </form>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                {{#each banner}}
+              <tr>
+                <td> <img src="/productImages/{{this.image.[0]}}" alt="image"/></td>
+                <td>{{this.name}}</td>
+                {{#if this.access}}
+                <td><button class="btn btn-danger btn-sm" onclick="alertedHide('{{this._id}}');">hide</button> </td>
+                {{else}}
+                <td><button class="btn btn-danger btn-sm" onclick="alertedUnHide('{{this._id}}');">unhide</button> </td>
+                {{/if}}
+
+
+
+
+
+
+              </tr>
+            {{/each}}
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>
+
+
+{{!--
+<script>
+  function categoryAlert(categoryId) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      $.ajax({
+        url: '/admin/delete-category/' + categoryId,
+        method: 'post',
+        success: (response) => {
+          if (result.isConfirmed) {
+            if (response.status == true) {
+              Swal.fire({
+
+                icon: 'success',
+                title: 'category deleted successfully',
+                showConfirmButton: false,
+              })
+              setTimeout(() => {
+                location.reload()
+              }, 800)
+            } else if (response.status == false) {
+              Swal.fire({
+
+                icon: 'error',
+                title: 'This category contains products in it!',
+                showConfirmButton: false,
+              })
+              setTimeout(() => {
+                location.reload()
+              }, 8000)
+            }
+          }
+
+        }
+      })
+
+    })
+  }
+
+</script> --}}
+<script>
+  function viewImage(event) {
+    document.getElementById('imgView').src = URL.createObjectURL(event.target.file[0])
+  }
+  function alertedHide(bannerId) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, hide it!'
+    }).then((result) => {
+      $.ajax({
+        url: '/admin/hide-banner/' + bannerId,
+        method: 'post',
+        success: (response) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+
+              icon: 'success',
+              title: 'Product hided succesfuly',
+              showConfirmButton: false,
+            })
+            setTimeout(() => {
+              location.reload()
+            }, 800)
+          }
+        }
+      })
+
+    })
+  }
+
+  function alertedUnHide(bannerId) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, hide it!'
+    }).then((result) => {
+      $.ajax({
+        url: '/admin/unhide-banner/' + bannerId,
+        method: 'post',
+        success: (response) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+
+              icon: 'success',
+              title: 'banner hided succesfuly',
+              showConfirmButton: false,
+            })
+            setTimeout(() => {
+              location.reload()
+            }, 800)
+          }
+        }
+      })
+
+    })
+  }
+</script>

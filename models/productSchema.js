@@ -30,7 +30,12 @@ const productSchema = new Schema({
     image : {
         type : Array,
         required : true
-    }
+    },
+    Description : {
+        type : String,
+        required : true
+    },
+    
 
 })
 

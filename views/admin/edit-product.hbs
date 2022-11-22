@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/admin/stylesheets/style.css"> 
+<link rel="stylesheet" href="/admin/stylesheets/style.css">
 
 
 
@@ -11,46 +11,65 @@
 
 
 
-  
+
 <div class="col-12 grid-margin stretch-card">
-    <img class="mt-5" src="https://cdn-icons-png.flaticon.com/512/1285/1285830.png" width="550px" height="400px" alt="">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Basic form elements</h4>
-                    <p class="card-description  mt-5 mb-5"><h2>Edit Product</h2> </p>
-                    <form action="/admin/edited-product/{{products._id}}" enctype="multipart/form-data" method="post" class="forms-sample mt-5" >
-                      <div class="form-group col-5">  
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" name="Name" value="{{products.Name}}"  class="form-control" id="exampleInputName1">
-                      </div>
-                      <div class="form-group col-5">
-                        <label for="exampleInputEmail3">Brand Name</label>
-                        <input type="text" name="Brand" value="{{products.Brand}}"  class="form-control" id="exampleInputEmail3" placeholder="Brand">
-                      </div>
-                      <div class="form-group col-5">
-                        <label for="exampleInputPassword4">Quantity</label>
-                        <input type="number" name="Quantity" value="{{products.Quantity}}"  class="form-control" id="exampleInputPassword4" placeholder="QTY">
-                      </div>
-                      <div class="form-group col-3">
-                        <label for="exampleSelectGender">Category</label>
-                        <select class="form-control" name="Category" id="exampleSelectGender">
-                          <option>Jeans</option>
-                          <option>Shirt</option>
-                          <option>T-shirt</option>
-                          <option>Shorts</option>
-                        </select>
-                      </div>
-                    <div class="form-group">
-                        <label>Image</label><br>
-                        <input type="file" name="productImage" class="form-control-file mt-2" id="Image" multiple>
-                    </div>    <div class="form-group col-5">
-                        <label for="exampleInputCity1">Price</label>
-                        <input type="number" name="Price" value="{{products.Price}}" class="form-control" id="exampleInputCity1" placeholder="Amount">
-                      </div>
-                     
-                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
+  <img class="mt-5" src="https://cdn-icons-png.flaticon.com/512/1285/1285830.png" width="550px" height="400px" alt="">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Basic form elements</h4>
+      <p class="card-description  mt-5 mb-5">
+      <h2>Edit Product</h2>
+      </p>
+      <form action="/admin/edited-product/{{products._id}}" enctype="multipart/form-data" method="post"
+        class="forms-sample mt-5">
+        <div class="form-group col-5">
+          <label for="exampleInputName1">Name</label>
+          <input type="text" name="Name" value="{{products.Name}}" class="form-control" id="exampleInputName1">
+        </div>
+        <div class="form-group col-5">
+          <label for="exampleInputEmail3">Brand Name</label>
+          <input type="text" name="Brand" value="{{products.Brand}}" class="form-control" id="exampleInputEmail3"
+            placeholder="Brand">
+        </div>
+        <div class="form-group col-5">
+          <label for="exampleInputPassword4">Quantity</label>
+          <input type="number" name="Quantity" value="{{products.Quantity}}" class="form-control"
+            id="exampleInputPassword4" placeholder="QTY">
+        </div>
+        <div class="form-group col-3">
+          <label for="exampleSelectGender">Category</label>
+          <select class="form-control" name="Category" id="exampleSelectGender">
+            {{#each categorys}}
+            <option>{{this.category}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Image</label><br>
+
+          <img src="/productImages/{{products.image.[0]}}" alt="" style="height:auto;width:50px" id="imgView">
+          <input type="file" name="productImage" onchange="viewImage(event)" class="form-control-file mt-2" id="Image"
+            multiple>
+        </div>
+        <div class="form-group col-5">
+          <label for="exampleInputCity1">Price</label>
+
+          <input type="number" name="Price" value="{{products.Price}}" class="form-control" id="exampleInputCity1"
+            placeholder="Amount">
+        </div>
+        <div class="form-group col-5">
+          <label for="exampleFormControlTextarea1">Description</label>
+          <textarea class="form-control"   name="Description"  rows="3" required=""></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+        <button class="btn btn-light">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+ function viewImage(event){
+    document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+  }
+</script>

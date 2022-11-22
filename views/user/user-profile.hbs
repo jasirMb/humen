@@ -12,9 +12,8 @@
           <!-- Breadcrumb -->
           <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">User</a></li>
-              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+              <li class="breadcrumb-item" ><a href="/" style="color:rgb(238, 144, 81) ;"><h3>Home / Profile</h3></a></li>
+              
             </ol>
           </nav>
           <!-- /Breadcrumb -->
@@ -27,8 +26,10 @@
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h3>{{user.userName}}</h3>
-                      <p class="text-secondary mb-1">Full Stack Developer</p>
-                      <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                      
+                      <p class="text-muted font-size-sm">address</p>
+                      <a href="#" class="btn-nixx number-font btn-lg">LOGOUT</a>
+                      
                       {{!-- <button class="btn btn-primary">Follow</button>
                       <button class="btn btn-outline-primary">Message</button> --}}
                     </div>
@@ -110,7 +111,8 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank" href="#">Edit Profile</a>
+                      <a class="btn-nixx number-font btn-lg mr-5" target="__blank" href="/edit-profile">Edit Profile</a>
+                      <a href="/myoders" class="btn-nixx number-font btn-lg">Myorders</a>
                     </div>
                   </div>
                 </div>

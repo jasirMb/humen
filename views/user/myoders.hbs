@@ -1,0 +1,222 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+
+<section class="h-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-10 col-xl-8">
+                <div class="card" style="border-radius: 10px;">
+                    <div class="card-header px-4 py-5">
+                        <h1>MY ORDERS
+                        </h1>
+                    </div>
+                    {{#each userOrders}}
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <p class="lead fw-normal mb-0" style="color: #a8729a;">
+                            <p>
+                            <h4 style="font-family:Arial, Helvetica, sans-serif ;">ORDER-ID:{{this._id}}</h4>
+                            </p>
+                            </p>
+                           
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                                   <h5> ADDRESS:</h5>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item" style="font-family: Arial, Helvetica, sans-serif;"><h5>{{this.deliveryAddress.[0].name}}</h5></li>
+                                    <li class="list-group-item"style="font-family: Arial, Helvetica, sans-serif;"><h5>{{this.deliveryAddress.[0].city}}</h5></li>
+                                    <li class="list-group-item"style="font-family: Arial, Helvetica, sans-serif;"><h5>{{this.deliveryAddress.[0].zip}}</h5></li>
+                                </ul>
+                            </div>
+                            {{!-- <p class="small   mb-0">Receipt Voucher : 1KAU9-84UIL</p> --}}
+                        </div>
+                        <div class="card shadow-0 border mb-4">
+
+                            <div class="card-body">
+                                {{#each products}}
+                                <div class="row mb-4">
+
+                                    <div class="col-md-2">
+                                        <img src="/productImages/{{this.productId.image.[0]}}" class="img-fluid"
+                                            alt="Product image" style="width:70px ;">
+                                    </div>
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <h4>
+                                            <p class=" mb-0" style="font-family: Arial, Helvetica, sans-serif ;">
+                                                {{this.name}}</p>
+                                        </h4>
+                                    </div>
+
+
+
+
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <h4>
+                                            <p class="  mb-0 " style="font-family: Arial, Helvetica, sans-serif;">
+                                                Qty:{{this.quantity}}</p>
+                                        </h4>
+                                    </div>
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <h4>
+                                            <p class="  mb-0 " style="font-family:Arial, Helvetica, sans-serif ;">
+                                                	&#8377;{{this.price}}</p>
+                                        </h4>
+                                    </div>
+                                </div>
+                                {{/each}}
+                                <hr class="mb-4" style="background-color: #000000; opacity: 1;">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-md-2">
+                                        <p class="  mb-0 ">
+                                        <h5
+                                            style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                                            TOTAL :{{this.total}}	&#8377;</h5>
+                                        </p>
+                                    </div>
+                                    {{!-- {{#ifCond this.status '==' "Cancel" }}
+                                    <button class="btn btn-sm "
+                                        style="width:10%; height:30px; margin-right: 100px; border-radius: 10%;color: blanchedalmond; background-color: rgb(241, 56, 50)">canceled</button>
+                                    {{/ifCond}} --}}
+
+                                    {{#ifCond this.status '==' "Canceled" }}
+                                    <button class="btn btn-sm "
+                                        style="width:10%; height:30px; margin-right: 100px; border-radius: 15%; background-color: rgb(255, 4, 4) ;color: white;">{{this.status}}</button>
+
+                                    {{/ifCond}}
+                                    {{#ifCond this.status '==' "Placed" }}
+                                    <button class="btn btn-sm "
+                                        style="width:10%; height:30px; margin-right: 100px; border-radius: 15%; background-color: rgb(17, 0, 248) ;color: white;">{{this.status}}</button>
+                                    <button class="btn-danger btn-sm  " style="width:25%;"
+                                        onclick="cancelOrder('{{this._id}}')">CANCEL </button>
+                                    {{/ifCond}}
+                                    {{#ifCond this.status '==' "Pending" }}
+                                    <button class="btn btn-sm "
+                                        style="width:10%; height:30px; margin-right: 100px; border-radius: 15%; background-color: rgb(217, 255, 0) ;color: white;">{{this.status}}</button>
+                                    <button class="btn-danger btn-sm  " style="width:25%;"
+                                        onclick="cancelOrder('{{this._id}}')">CANCEL </button>
+                                    {{/ifCond}}
+                                    {{#ifCond this.status '==' "Shipped" }}
+                                    <button class="btn btn-sm "
+                                        style="width:10%; height:30px; margin-right: 100px; border-radius: 15%; background-color: rgb(0, 255, 242) ;color: white;">{{this.status}}</button>
+                                    <button class="btn-danger btn-sm  " style="width:25%;"
+                                        onclick="cancelOrder('{{this._id}}')">CANCEL </button>
+                                    {{/ifCond}}
+                                    {{#ifCond this.status '==' "Delivered" }}
+                                    <button class="btn btn-sm "
+                                        style="width:10%; height:30px; margin-right: 100px; border-radius: 15%; background-color: rgb(0, 255, 55) ;color: white;">{{this.status}}</button>
+
+                                    {{/ifCond}}
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        {{!-- <div class="card shadow-0 border mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/1.webp"
+                                            class="img-fluid" alt="Phone">
+                                    </div>
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <p class="  mb-0">iPad</p>
+                                    </div>
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <p class="  mb-0 small">Pink rose</p>
+                                    </div>
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <p class="  mb-0 small">Capacity: 32GB</p>
+                                    </div>
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <p class="  mb-0 small">Qty: 1</p>
+                                    </div>
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <p class="  mb-0 small">$399</p>
+                                    </div>
+                                </div>
+                                <hr class="mb-4" style="background-color: #000000; opacity: 1;">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-md-2">
+                                        <p class="  mb-0 small">Track Order</p>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="progress" style="height: 6px; border-radius: 16px;">
+                                            <div class="progress-bar" role="progressbar"
+                                                style="width: 20%; border-radius: 16px; background-color: #000000;"
+                                                aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-around mb-1">
+                                            <p class="  mt-1 mb-0 small ms-xl-5">Out for delivary</p>
+                                            <p class="  mt-1 mb-0 small ms-xl-5">Delivered</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+
+
+                    </div>
+                    {{/each}}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{{!-- <style>
+    .gradient-custom {
+        /* fallback for old browsers */
+        background: #cd9cf2;
+
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to top left, rgba(205, 156, 242, 1), rgba(246, 243, 255, 1));
+
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to top left, rgb(235, 98, 8), rgba(246, 243, 255, 1))
+    }
+</style> --}}
+<script>
+    function cancelOrder(odrId) {
+        console.log(odrId)
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            $.ajax({
+                url: '/orderRemove/' + odrId,
+                method: 'post',
+                success: (response) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+
+                            icon: 'success',
+                            title: 'order updated successfully',
+                            showConfirmButton: false,
+                        })
+                        setTimeout(() => {
+                            location.reload()
+                        }, 800)
+                    }
+                }
+            })
+
+        })
+    }
+
+</script>
+</script>

@@ -1,0 +1,139 @@
+<link rel="stylesheet" href="/admin/stylesheets/style.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<body>
+
+    <div class="col-lg-10 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Bordered table</h4>
+                <p class="card-description">
+                <h3>ORDER MANAGEMENT </h3>
+                </p>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>OderId</th>
+                            <th> Date </th>
+                            <th>Status </th>
+                            <th>Total Price </th>
+                            <th> Payment </th>
+                           
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each userOrders}}
+
+                        <tr>
+                            <td>{{this._id}}</td>
+                            <td>{{this.date}}</td>
+                            <td>
+                                <p>{{this.status}}</p>
+                                <div class="progress">
+                                     {{#ifCond this.status '==' "Canceled" }}
+                                    <div class="progress-bar " role="progressbar" style="width: 100%;background-color: rgb(255, 2, 2);"
+                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        {{/ifCond}}
+                                         {{#ifCond this.status '==' "Shipped" }}
+                                    <div class="progress-bar " role="progressbar" style="width: 75%;background-color: rgb(0, 255, 234);"
+                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        {{/ifCond}}
+                                         {{#ifCond this.status '==' "Delivered" }}
+                                    <div class="progress-bar " role="progressbar" style="width: 100%;background-color: rgb(0, 255, 13);"
+                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        {{/ifCond}}
+                                         {{#ifCond this.status '==' "Placed" }}
+                                    <div class="progress-bar " role="progressbar" style="width: 25%;background-color: rgb(0, 38, 255);"
+                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        {{/ifCond}}
+                                        {{#ifCond this.status '==' "Pending" }}
+                                    <div class="progress-bar " role="progressbar" style="width: 100%;background-color: rgb(229, 255, 0);"
+                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        {{/ifCond}}
+                                </div>
+                            </td>
+                            <td> 	&#8377; {{this.total}} </td>
+                            <td> {{this.paymentType}} </td>
+                            <td> <a href="/admin/singleOrder/{{this._id}}"><i class="mdi mdi-eye"></i></a> </td>
+                        </tr>
+                        {{/each}}
+                        {{!-- <tr>
+                            <td> 2 </td>
+                            <td> Messsy Adam </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 75%"
+                                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </td>
+                            <td> $245.30 </td>
+                            <td> July 1, 2015 </td>
+                        </tr>
+                        <tr>
+                            <td> 3 </td>
+                            <td> John Richards </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 90%"
+                                        aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </td>
+                            <td> $138.00 </td>
+                            <td> Apr 12, 2015 </td>
+                        </tr>
+                        <tr>
+                            <td> 4 </td>
+                            <td> Peter Meggik </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 50%"
+                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </td>
+                            <td> $ 77.99 </td>
+                            <td> May 15, 2015 </td>
+                        </tr>
+                        <tr>
+                            <td> 5 </td>
+                            <td> Edward </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 35%"
+                                        aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </td>
+                            <td> $ 160.25 </td>
+                            <td> May 03, 2015 </td>
+                        </tr>
+                        <tr>
+                            <td> 6 </td>
+                            <td> John Doe </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%"
+                                        aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </td>
+                            <td> $ 123.21 </td>
+                            <td> April 05, 2015 </td>
+                        </tr>
+                        <tr>
+                            <td> 7 </td>
+                            <td> Henry Tom </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 20%"
+                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </td>
+                            <td> $ 150.00 </td>
+                            <td> June 16, 2015 </td>
+                        </tr> --}}
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</body>

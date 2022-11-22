@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{{!-- <title>Shop left sidebar Page</title>
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="icon" href="asset/img/favicon.png" type="image/x-icon"/>
+	<link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="asset/css/bootstrap-theme.min.css">
+	<!-- jquery ui -->
+	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <!--  -->
+	<link rel="stylesheet" type="text/css" href="asset/css/themify-icons.css">
+	<link rel="stylesheet" type="text/css" href="asset/css/zoa-font.css">
+	<link rel="stylesheet" type="text/css" href="asset/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="asset/css/font-family.css">
+	<link rel="stylesheet" type="text/css" href="asset/css/slick.css">
+	<link rel="stylesheet" type="text/css" href="asset/css/slick-theme.css">
+	<link rel="stylesheet" type="text/css" href="asset/css/style-main.css">
+	<link rel="stylesheet" type="text/css" href="asset/css/responsive.css">
+</head> --}}
+<body>
+    <!-- push menu-->
+    {{!-- <div class="pushmenu menu-home5">
+        <div class="menu-push">
+            <span class="close-left js-close"><i class="ti-close"></i></span>
+            <div class="clearfix"></div>
+            <form role="search" method="get" id="searchform" class="searchform title-font" action="/search">
+                <div>
+                    <label class="screen-reader-text" for="q"></label>
+                    <input type="text" placeholder="Search for products" value="" name="q" id="q" autocomplete="off">
+                    <input type="hidden" name="type" value="product">
+                    <button type="submit" id="searchsubmit"><i class="ti-search"></i></button>
+                </div>
+            </form>
+            <ul class="nav-home5 js-menubar clear-space menu-font">
+                <li class="level1 active dropdown">
+                    <a href="#" class="uppercase">Home</a>
+                    <span class="icon-sub-menu"></span>
+                    <div class="menu-level1 js-open-menu">
+                    <ul class="level1">
+                        <li class="level2">
+                                <a href="#" class="capital">home set 1</a>
+                                <ul class="menu-level-2 clear-space">
+                                    <li class="level3 capital menu-child-font"><a href="Home1.html" title="">home page 1</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="Home2.html" title="">home page 2</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="Home3.html" title="">home page 3</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="Home4.html" title="">home page 4</a></li>
+                                </ul>
+                        </li>
+                        <li class="level2">
+                                <a href="#" class="capital">home set 2</a>
+                                <ul class="menu-level-2 clear-space">
+                                    <li class="level3 capital menu-child-font"><a href="Home5.html" title="">home page 5</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="Home6.html" title="">home page 6</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="Home7.html" title="">home page 7</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="Home8.html" title="">home page 8 comming soon</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+                </li>
+                <li class="level1 active dropdown"><a href="#" class="uppercase">Shop</a>
+                    <span class="icon-sub-menu"></span>
+                    <div class="menu-level1 js-open-menu">
+                        <ul class="level1">
+                            <li class="level2">
+                                <a href="#" class="capital">Shop page</a>
+                                <ul class="menu-level-2 clear-space">
+                                    <li class="level3 menu-child-font"><a href="Shop_right_sidebar.html">shop right sidebar</a></li>
+                                    <li class="level3 menu-child-font"><a href="Shop_left_sidebar.html">shop left sidebar</a></li>
+                                    <li class="level3 menu-child-font"><a href="Shop_no_sidebar.html">shop full width</a></li>
+                                    <li class="level3 menu-child-font"><a href="#">shop page 4 - comming soon</a></li>
+                                </ul>
+                            </li>
+                            <li class="level2">
+                                <a href="#" class="capital">Single Product Type</a>
+                                <ul class="menu-level-2 clear-space">
+                                    <li class="level3 menu-child-font"><a href="Product_detail_1.html">product detail 1</a></li>
+                                    <li class="level3 menu-child-font"><a href="Product_detail_2.html">product detail 2</a></li>
+                                    <li class="level3 menu-child-font"><a href="#">product detail 3 - Comming soon</a></li>
+                                    <li class="level3 menu-child-font"><a href="#">product detail 4 - Comming soon</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </li>
+                <li class="level1 active dropdown">
+                    <a href="#" class="uppercase">Blog</a>
+                    <span class="icon-sub-menu"></span>
+                    <div class="menu-level1 js-open-menu">
+                    <ul class="level1">
+                        <li class="level2">
+                                <a href="#" class="capital">blog page</a>
+                                <ul class="menu-level-2 clear-space">
+                                    <li class="level3 capital menu-child-font"><a href="Blog_right_sidebar.html">blog right sidebar</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="Blog_left_sidebar.html">blog left sidebar</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="Blog_no_sidebar.html">blog full width</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="#">blog page 4 - comming soon</a></li>
+                                </ul>
+                        </li>
+                        <li class="level2">
+                                <a href="#" class="capital">blog detail</a>
+                                <ul class="menu-level-2 clear-space">
+                                    <li class="level3 capital menu-child-font"><a href="Blog_detail_right_sidebar.html">blog detail right sidebar</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="Blog_detail_left_sidebar.html">blog detail left sidebar</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="Blog_detail_no_sidebar.html">blog detail full width</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="#">blog detail 4 - comming soon</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+                </li>
+                <li class="level1 active dropdown">
+                    <a href="#" class="uppercase">Pages</a>
+                    <span class="icon-sub-menu"></span>
+                    <div class="menu-level1 js-open-menu">
+                    <ul class="level1">
+                        <li class="level2">
+                                <a href="#" class="capital">page set 1</a>
+                                <ul class="menu-level-2 clear-space">
+                                    <li class="level3 capital menu-child-font"><a href="About_page_1.html">about page 1</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="About_page_2.html">about page 2</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="FAQ.html">FAQs page</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="404.html">404 page</a></li>
+                                </ul>
+                        </li>
+                        <li class="level2">
+                                <a href="#" class="capital">page set 2</a>
+                                <ul class="menu-level-2 clear-space">
+                                    <li class="level3 capital menu-child-font"><a href="cart_page.html">cart page</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="wishlist_page.html">wishlist page</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="login_page.html">login/register page</a></li>
+                                    <li class="level3 capital menu-child-font"><a href="#">other page - comming soon</a></li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+                </li>
+                <li class="level1">
+                    <a href="Contact.html" class="uppercase">contact</a>
+                </li>
+                <li>
+                    <a href="#" class="inline-block uppercase"><i class="zoa-icon-user space_right_10"></i>login</a>
+                </li>
+            </ul>
+        </div>
+    </div> --}}
+    <!-- end push menu-->
+{{!-- <header>
+    <div class="container space_top_bot_55 delay03" id="menu-header">
+        <div class="row flex">
+            <div class="col-lg-1 col-md-2 col-sm-6 col-xs-5">
+                <a href="#"><img src="asset/img/logo.png" alt=""></a>
+            </div>
+            <div class="col-lg-8 col-md-7 hidden-sm hidden-xs">
+                <ul class="nav navbar-nav menu-font menu-main">
+                    <li class="relative dropdown">
+                        <a href="#" class="link-menu delay03 uppercase">HOME</a>
+                        <figure class="line active_line absolute delay03"></figure>
+                        <div class="dropdown-menu mega-menu-main absolute space_30 space_top_bot_50 text-left">
+                            <div class="container_15">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 border-right">
+                                        <ul class="clear-space capital lv1">
+                                            <li class="margin_bottom_20 space_left_20 uppercase">Home Set 1</li>
+                                            <li class="menu-child-font"><a href="home1.html">Home page 1</a></li>
+                                            <li class="menu-child-font"><a href="home2.html">Home page 2</a></li>
+                                            <li class="menu-child-font"><a href="home3.html">Home page 3</a></li>
+                                            <li class="menu-child-font"><a href="home4.html">Home page 4</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <ul class="capital lv1 space_left_30">
+                                            <li class="margin_bottom_20 space_left_20 uppercase">Home set 2</li>
+                                            <li class="menu-child-font"><a href="home5.html">Home page 5</a></li>
+                                            <li class="menu-child-font"><a href="home6.html">Home page 6</a></li>
+                                            <li class="menu-child-font"><a href="home7.html">Home page 7</a></li>
+                                            <li class="menu-child-font"><a href="#">Home page 8 - Comming soon</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="relative dropdown">
+                        <a href="#" class="link-menu delay03 uppercase">SHOP</a>
+                        <figure class="line absolute delay03"></figure>
+                        <div class="dropdown-menu mega-menu-main absolute space_30 space_top_bot_50 text-left mega-menu-shop">
+                            <div class="container_15">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 border-right">
+                                        <ul class="clear-space capital lv1">
+                                            <li class="margin_bottom_20 space_left_20 uppercase">shop page</li>
+                                            <li class="menu-child-font"><a href="Shop_right_sidebar.html">shop right sidebar</a></li>
+                                            <li class="menu-child-font"><a href="Shop_left_sidebar.html">shop left sidebar</a></li>
+                                            <li class="menu-child-font"><a href="Shop_no_sidebar.html">shop full width</a></li>
+                                            <li class="menu-child-font"><a href="#">shop page 4 - Comming soon</a></li>
+                                        </ul>
+                                    </div>
+                                    <!--  -->
+                                    <div class="col-lg-4 col-md-4">
+                                        <ul class="capital lv1 space_left_30">
+                                            <li class="margin_bottom_20 space_left_20 uppercase">product detail</li>
+                                            <li class="menu-child-font"><a href="Product_detail_1.html">product detail 1</a></li>
+                                            <li class="menu-child-font"><a href="Product_detail_2.html">product detail 2</a></li>
+                                            <li class="menu-child-font"><a href="#">product detail 3 - Comming soon</a></li>
+                                            <li class="menu-child-font"><a href="#">product detail 4 - Comming soon</a></li>
+                                        </ul>
+                                    </div>
+                                    <!--  -->
+                                    <!--  -->
+                                    <div class="col-lg-4 col-md-4 banner-menu">
+                                        <div class="product">
+                                            <div class="img-product relative">
+                                                <a href="#" class="inline-block"><img src="asset/img/product1_home6.jpg" class="img-responsive" alt=""></a>
+                                                <figure class="absolute uppercase label-new title-font text-center">new</figure>
+                                                <div class="product-icon absolute text-center">
+                                                    <form method="post" action="/cart/add" enctype="multipart/form-data" class="inline-block icon-addcart">
+                                                      <input type="hidden" name="id" value="" />
+                                                      <button type="submit" name="add" class="enj-add-to-cart-btn btn-default"><i class="ti-bag"></i></button>
+                                                    </form>
+                                                    <a href="#" class="icon-heart inline-block"><i class="ti-heart"></i></a>
+                                                    <a href="#" class="engoj_btn_quickview icon-quickview inline-block" title="quickview">
+                                                      <i class="ti-more-alt"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="relative dropdown">
+                        <a href="#" class="link-menu delay03 uppercase">BLOG</a>
+                        <figure class="line absolute delay03"></figure>
+                        <div class="dropdown-menu mega-menu-main absolute space_30 space_top_bot_50 text-left">
+                            <div class="container_15">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 border-right">
+                                        <ul class="clear-space capital lv1">
+                                            <li class="margin_bottom_20 space_left_20 uppercase">blog page</li>
+                                            <li class="menu-child-font"><a href="Blog_right_sidebar.html">blog right sidebar</a></li>
+                                            <li class="menu-child-font"><a href="Blog_left_sidebar.html">blog left sidebar</a></li>
+                                            <li class="menu-child-font"><a href="Blog_no_sidebar.html">blog full width</a></li>
+                                            <li class="menu-child-font"><a href="#">blog page 4 - Comming soon</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <ul class="capital lv1 space_left_30">
+                                            <li class="margin_bottom_20 space_left_20 uppercase">blog detail page</li>
+                                            <li class="menu-child-font"><a href="Blog_detail_right_sidebar.html">blog detail right sidebar</a></li>
+                                            <li class="menu-child-font"><a href="Blog_detail_left_sidebar.html">blog detail left sidebar</a></li>
+                                            <li class="menu-child-font"><a href="Blog_detail_no_sidebar.html">blog detail full width</a></li>
+                                            <li class="menu-child-font"><a href="#">blog detail 4 - Comming soon</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="relative dropdown">
+                        <a href="#" class="link-menu delay03 uppercase">PAGES</a>
+                        <figure class="line absolute delay03"></figure>
+                        <div class="dropdown-menu mega-menu-main absolute space_30 space_top_bot_50 text-left">
+                            <div class="container_15">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 border-right">
+                                        <ul class="clear-space capital lv1">
+                                            <li class="margin_bottom_20 space_left_20 uppercase">page set 1</li>
+                                            <li class="menu-child-font"><a href="About_page_1.html">about page 1</a></li>
+                                            <li class="menu-child-font"><a href="About_page_2.html">about page 2</a></li>
+                                            <li class="menu-child-font"><a href="FAQ.html">FAQs page</a></li>
+                                            <li class="menu-child-font"><a href="404.html">404 page</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <ul class="capital lv1 space_left_30">
+                                            <li class="margin_bottom_20 space_left_20 uppercase">page set 2</li>
+                                            <li class="menu-child-font"><a href="cart_page.html">cart page</a></li>
+                                            <li class="menu-child-font"><a href="wishlist_page.html">wishlist page</a></li>
+                                            <li class="menu-child-font"><a href="login_page.html">login/register page</a></li>
+                                            <li class="menu-child-font"><a href="#">other page - comming soon</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="relative">
+                        <a href="Contact.html" class="link-menu delay03 uppercase">CONTACT</a>
+                        <figure class="line absolute delay03"></figure>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-7 text-right icon-main">
+                <a href="#" class="link-menu delay03 container_20 inline-block hidden-xs hidden-sm" id="btn-search"><i class="ti-search"></i></a>
+                <a href="#" class="link-menu delay03 container_20 inline-block hidden-xs hidden-sm" id="btn-login"><i class="zoa-icon-user"></i></a>
+                <a href="#" class="link-menu delay03 container_20 relative inline-block text-center" id="btn-cart">
+                    <i class="ti-bag"></i>
+                    <figure class="absolute label-cart number-font">0</figure>
+                </a>
+                <a href="#" class="link-menu delay03 inline-block hidden-md hidden-lg space_left_10 btn-push-menu">
+                    <svg width="26" height="16" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 66 41" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
+                                    <g>
+                                        <line class="st0" x1="1.5" y1="1.5" x2="64.5" y2="1.5"></line>
+                                        <line class="st0" x1="1.5" y1="20.5" x2="64.5" y2="20.5"></line>
+                                        <line class="st0" x1="1.5" y1="39.5" x2="64.5" y2="39.5"></line>
+                                    </g>
+                   </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</header> --}}
+<main>
+<div class="banner margin_bottom_150">
+	<div class="container">
+		<h1 class="title-font title-banner">Shop</h1>
+		<ul class="breadcrumb des-font">
+			<li><a href="Home1.html">Home</a></li>
+			<li class="active">Shop</li>
+		</ul>
+	</div>
+</div>
+<!--  -->
+<div class="container shop-page margin_bottom_150">
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 sidebar-left">
+			<ul class="price margin_bottom_70 clear-space-left space_right_10">
+				<li><h1 class="title-font title">Filter By Price</h1></li>
+				<li>
+						<div id = "slider-3"></div>
+      					<p class="range-p des-font margin_top_30">
+         				 	Price: <input type = "text" id = "price">
+         				 	<button class="uppercase menu-font right"><i class="ti-filter"></i> filter</button>
+     					</p>
+				</li>
+			</ul>
+            <ul class="category margin_bottom_70 clear-space-left space_right_10">
+            	<li><h1 class="title-font title">Product Categories</h1></li>
+                {{#each categorys}}
+            	<li><a href="#" class="des-font link-collection">{{this.category}}(0)</a></li>
+                {{/each}}
+            	{{!-- <li><a href="#" class="des-font link-collection">Chair & Tables (18)</a></li>
+            	<li><a href="#" class="des-font link-collection">Cleaning Tools (0)</a></li>
+            	<li><a href="#" class="des-font link-collection">Coffeepots Teapots (0)</a></li>
+            	<li><a href="#" class="des-font link-collection">DAR Armchair (0)</a></li>
+            	<li>
+            		<button class="des-font link-collection accordion">Deco (20)</button>
+            		<ul class="panel">
+            			<li><a href="#" class="des-font link-collection">Embossed Backpack in Brown</a></li>
+            			<li><a href="#" class="des-font link-collection">Embossed Backpack in Brown</a></li>
+            			<li><a href="#" class="des-font link-collection">Embossed Backpack in Brown</a></li>
+            			<li><a href="#" class="des-font link-collection">Embossed Backpack in Brown</a></li>
+					</ul>
+            	</li>
+            	<li><a href="#" class="des-font link-collection">Decorate & Lighting (18)</a></li>
+            	<li><a href="#" class="des-font link-collection">Home Accessories (20)</a></li>
+            	<li>
+            		<button class="des-font link-collection accordion">Lighting (21)</button>
+            		<ul class="panel">
+            			<li><a href="#" class="des-font link-collection">Embossed Backpack in Brown</a></li>
+            			<li><a href="#" class="des-font link-collection">Embossed Backpack in Brown</a></li>
+            			<li><a href="#" class="des-font link-collection">Embossed Backpack in Brown</a></li>
+            			<li><a href="#" class="des-font link-collection">Embossed Backpack in Brown</a></li>
+					</ul>
+            	</li>
+            	<li><a href="#" class="des-font link-collection">Sphere Light (0)</a></li>
+            	<li><a href="#" class="des-font link-collection">Teakettles (0)</a></li>
+            	<li>
+            		<button class="des-font link-collection accordion">Windsor chair (10)</button>
+            		<ul class="panel">
+            			<li><a href="#" class="des-font link-collection">Embossed Backpack in Brown</a></li>
+            			<li><a href="#" class="des-font link-collection">Embossed Backpack in Brown</a></li>
+            			<li><a href="#" class="des-font link-collection">Embossed Backpack in Brown</a></li>
+            			<li><a href="#" class="des-font link-collection">Embossed Backpack in Brown</a></li>
+					</ul>
+            	</li> --}}
+            </ul>
+			
+			<ul class="color margin_bottom_70 clear-space-left space_right_10">
+				<li><h1 class="title-font title">Chose Brands</h1></li>
+                {{#each products}}
+				<li><a href="#" class="des-font link-collection">{{this.Brand}}</a></li>
+                {{/each}}
+			
+			</ul>
+			{{!-- <ul class="popular margin_bottom_70 clear-space-left space_right_10">
+				<li><h1 class="title-font title">Popular Tags</h1></li>
+				<li class="left margin_right_10"><a href="#" class="des-font link-collection">Art (3)</a></li>
+				<li class="left margin_right_10"><a href="#" class="des-font link-collection">Bathroom (1)</a></li>
+				<li class="left margin_right_10"><a href="#" class="des-font link-collection">Bowls (6)</a></li>
+				<li class="left margin_right_10"><a href="#" class="des-font link-collection">Clocks (8)</a></li>
+				<li class="left margin_right_10"><a href="#" class="des-font link-collection">Flowerpots (4)</a></li>
+				<li class="left margin_right_10"><a href="#" class="des-font link-collection">Decor (8)</a></li>
+				<li class="left margin_right_10"><a href="#" class="des-font link-collection">Dining (14)</a></li>
+			</ul> --}}
+		</div>
+		<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 content-shop">
+			<div class="row btn-function-shop">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 margin_bottom_50">
+					<span class="des-font showing hidden-xs">Showing 1–9 of 50 results</span>
+					<button class="active" id="btn-grid"><i class="ti-layout-grid3-alt"></i></button>
+					<button id="btn-list"><i class="ti-list"></i></button>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 margin_bottom_50 text-right select-view">
+					<button><i class="ti-eye"></i></button>
+					<select id="select-show">
+						<option>Sort by popularity</option>
+                        <option>Featured</option>
+                        <option>Best selling</option>
+                        <option>Alphabetically, A - Z</option>
+                        <option>Price, hight to low</option>
+                        <option>Price, low to hight</option>
+					</select>
+				</div>
+			</div>
+            
+			<div class="row">
+                {{#each products}}
+				<div class="product col-lg-4 col-md-4 col-sm-6 col-xs-6 margin_bottom_50">
+					<div class="img-product relative">
+						<a href="/single-product/{{this._id}}"><img src="/productImages/{{this.image.[0]}}" class="img-responsive" alt=""></a>
+						<figure class="absolute uppercase label-new title-font text-center">{{this.Brand}}</figure>
+						<div class="product-icon text-center absolute">
+							<form method="post" action="/cart/add" enctype="multipart/form-data" class="inline-block icon-addcart">
+  							  <input type="hidden" name="id" value="" />
+  							  <button type="submit" name="add" class="enj-add-to-cart-btn btn-default"><i class="ti-bag"></i></button>
+  							</form>
+  							<a href="#" class="icon-heart inline-block"><i class="ti-heart"></i></a>
+  							<a href="#" class="engoj_btn_quickview icon-quickview inline-block" title="quickview">
+      						  <i class="ti-more-alt"></i>
+      						</a>
+						</div>
+					</div>
+					<div class="product-info">
+					<div class="info-product text-center">
+						<h4 class="des-font capital title-product space_top_20"><a href="/single-product/{{this._id}}">{{this.Name}}</a></h4>
+						<p class="number-font price-product"><span class="price">{{this.Price}}</span></p>
+						<p class="des-font des-product">{{this.Description}}</p>
+					</div>
+					<div class="btn-product-list">
+						<form method="post" action="/cart/add" enctype="multipart/form-data" class="inline-block icon-addcart">
+  							  <input type="hidden" name="id" value="" />
+  							  <button type="submit" name="add" class="enj-add-to-cart-btn btn-default des-font uppercase">add to cart</button>
+  						</form>
+  							<a href="#" class="icon-heart inline-block"><i class="ti-heart"></i></a>
+  							<a href="#" class="engoj_btn_quickview icon-quickview inline-block" title="quickview">
+      						  <i class="ti-more-alt"></i>
+      						</a>
+					</div>
+					</div>
+				</div>
+                {{/each}}
+				
+			<div class="row">
+				<div class="col-md-12">
+					<ul class="pagination">
+						<li><a href="#" class="des-font border"><i class="ti-arrow-left"></i></a></li>
+						<li><a href="#" class="des-font active">1</a></li>
+						<li><a href="#" class="des-font">2</a></li>
+						<li><a href="#" class="des-font">3</a></li>
+						<li><a href="#" class="des-font">...</a></li>
+						<li><a href="#" class="des-font border"><i class="ti-arrow-right"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--  -->
+<div class="newsletter-home3 space_bot_150 space_top_130 BG">
+	<h1 class="title-font capital title-newsletter text-center">Get Our Latest Update In Your Email</h1>
+	<p class="des-font des-newsletter space_bot_60 text-center">Subscribe now to get 15% off on any product</p>
+	<form class="form-group des-font flex" method="post" target="_blank">
+				<input type="email" name="EMAIL" class="form-control" placeholder="Your email address...">
+				<button type="submit" class="menu-font uppercase">subscribe</button>
+	</form>
+</div>
+<!--  -->
+</main>
+<footer>
+	<div  class="contact-home1 space_top_100 space_bot_120">
+		<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-about-home1">
+				<h4 class="des-font space_bot_40 title-about-home1">About us</h4>
+				<p class="des-font space_bot_20 des-about-home1">Proin gravida nibh vel velit auctor aliqu. Aenean 
+				sollicitudin, lorem.</p>
+				<p class="space_bot_30 location"><span class="ti-location-pin"></span><span> 531 West Avenue, NY</span></p>
+				<div class="space_bot_50">
+					<a href="#"><img src="asset/img/img-footer-1.png" class="img-responsive" alt=""></a>
+				</div>
+				<form class="form-group des-font flex" method="post" target="_blank">
+					<input type="email" name="EMAIL" class="form-control" placeholder="Your email goes here...">
+					<button type="submit"><i class="ti-location-arrow"></i></button>
+				</form>
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 lastest-post">
+				<h4 class="des-font space_bot_40 title-about-home1 text-left">Lastest Post</h4>
+				<h5 class="title-font uppercase text-left"><a href="#">Your Personality Color</a></h5>
+					<p class="des-font space_bot_40 text-left">02/27/2018</p>
+				<h5 class="title-font uppercase text-left"><a href="#">Coat Materials for Winter</a></h5>
+					<p class="des-font space_bot_40 text-left">02/27/2018</p>
+				<h5 class="title-font uppercase text-left"><a href="#">Streetwear Outfit Ideas</a></h5>
+					<p class="des-font space_bot_40 text-left">02/27/2018</p>
+			</div>
+			<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 recent-tag">
+				<h4 class="des-font space_bot_40 title-about-home1">Recent Tags</h4>
+				<a href="#" class="uppercase des-font">abstract</a>
+				<a href="#" class="uppercase des-font">art</a>
+				<a href="#" class="uppercase des-font">blog</a>
+				<a href="#" class="uppercase des-font">exhibition</a>
+				<a href="#" class="uppercase des-font">event</a>
+				<a href="#" class="uppercase des-font">evening</a>
+				<a href="#" class="uppercase des-font">gym</a>
+				<a href="#" class="uppercase des-font">exhibition</a>
+				<a href="#" class="uppercase des-font">news</a>
+				<a href="#" class="uppercase des-font">people</a>
+				<a href="#" class="uppercase des-font">trends</a>
+			</div>
+			<div class="col-lg-3 col-md-12 col-sm-6 col-xs-12 instagram">
+				<h4 class="des-font space_bot_40 title-about-home1">Instagram</h4>
+			
+				
+						<a href="#"><img src="asset/img/img_insta_1.jpg" class="img-responsive" alt=""></a>
+					
+				
+						<a href="#"><img src="asset/img/img_insta_2.jpg" class="img-responsive" alt=""></a>
+				
+				
+						<a href="#"><img src="asset/img/img_insta_3.jpg" class="img-responsive" alt=""></a>
+				
+				
+						<a href="#"><img src="asset/img/img_insta_4.jpg" class="img-responsive" alt=""></a>
+				
+				
+						<a href="#"><img src="asset/img/img_insta_5.jpg" class="img-responsive" alt=""></a>
+				
+						<a href="#"><img src="asset/img/img_insta_6.jpg" class="img-responsive" alt=""></a>
+				
+			
+				
+				
+				
+			</div>
+		</div>
+		</div>
+	</div>
+	<div class="container-fluid des-font text-center space_top_bot_50 copyright">Copyright © 2018 EngoTheme. All rights reserved.</div>
+	
+</footer>
+<div class="overlay"></div>
+<div class="gotop text-center fade"><i class="ti-angle-up"></i></div>
+<div class="form-search delay03 text-center">
+					
+                    	<i class="ti-close" id="close-search"></i>
+                        <h3 class="text-center title-font">what are<br>your looking for ?</h3>
+                        <form method="get" action="/search" role="search">
+                          <input type="text" class="form-control control-search des-font" value="" autocomplete="off" placeholder="Enter Search ..." aria-label="SEARCH" name="q">
+                          <button class="button_search title-font" type="submit">search</button>
+                        </form>           
+</div>
+<div class="form-cart delay03">
+	<i class="ti-close" id="close-cart"></i>
+	<h3 class="title-font capital">my cart</h3>
+	<div class="empty-cart">
+		<p class="des-font">No products in the cart.</p>
+		<a href="#" class="capital des-font">start shopping</a>
+	</div>
+</div>
+<div class="open-sidebar-left fixed" data-click-state="0">
+	<i class="ti-angle-right"></i>
+</div>
+<script src="asset/js/jquery-3.3.1.min.js" defer=""></script>
+<script src="asset/js/bootstrap.min.js" defer=""></script>
+<!-- jquery ui -->
+<script src="asset/js/jquery-ui/jquery-1.10.2.710.js" defer=""></script>
+<script src="asset/js/jquery-ui/jquery-ui_c2.js" defer=""></script>
+<!-- end -->
+<script src="asset/js/slick.min.js" defer=""></script>
+<script src="asset/js/function-main.js" defer=""></script>
+<script src="asset/js/function-range.js" defer=""></script>
+<script src="asset/js/function-select-custom.js" defer=""></script>
+</body>
+</html>-

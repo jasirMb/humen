@@ -38,9 +38,10 @@
         </thead>
         <tbody>
           {{#each products}}
+
           <tr>
             <td class="py-1">
-              <img src="/product-images/{{this._id}}.jpg" alt="image" />
+              <img src="/productImages/{{this.image.[0]}}" alt="image" />
             </td>
             <td>{{this.Name}}</td>
             <td> {{this.Brand}} </td>
@@ -48,9 +49,13 @@
             <td>{{this.Category}}</td>
             <td>{{this.Price}}</td>
             <td><a href="/admin/edit-product/{{this._id}} " class="btn btn-primary">Edit</a></td>
-            <td> <button  class="btn btn-danger" onclick="alerted('{{this._id}}');">Remove</button>
+            {{#if archive}}
+            <td> <button class="btn btn-danger" onclick="alertedUndo('{{this._id}}');">Unhide</button>
             </td>
-
+            {{else}}
+            <td> <button class="btn btn-danger" onclick="alerted('{{this._id}}');">Hide</button>
+            </td>
+          {{/if}}
           </tr>
           {{/each}}
         </tbody>
@@ -60,35 +65,67 @@
 </div>
 
 <script>
-  function alerted(proId){
-   Swal.fire({
-  title: 'Are you sure?',
-  text: "You won't be able to revert this!",
-  icon: 'warning',
-  showCancelButton: true,
-  confirmButtonColor: '#d33',
-  cancelButtonColor: '#3085d6',
-  confirmButtonText: 'Yes, delete it!'
-}).then((result)=>{
-    $.ajax({
-      url:'/admin/delete-product/'+proId,      
-      method:'post',
-      success:(response)=>{
-       if(result.isConfirmed){
-       Swal.fire({
-          
-          icon: 'success',
-          title: 'Your work has been saved',
-          showConfirmButton: false,
-          })
-          setTimeout(()=>{
-            location.reload()
-          },800)
-       }
-      }
-    })
+  function alerted(proId) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, hide it!'
+    }).then((result) => {
+      $.ajax({
+        url: '/admin/delete-product/' + proId,
+        method: 'post',
+        success: (response) => {
+          if (result.isConfirmed) {
+            Swal.fire({
 
-})
+              icon: 'success',
+              title: 'Product hided succesfuly',
+              showConfirmButton: false,
+            })
+            setTimeout(() => {
+              location.reload()
+            }, 800)
+          }
+        }
+      })
+
+    })
   }
-   
+
+  function alertedUndo(proId) {
+    console.log("working???????????????????")
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, unhide  it!'
+    }).then((result) => {
+      $.ajax({
+        url: '/admin/undoDelete-product/' + proId,
+        method: 'post',
+        success: (response) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+
+              icon: 'success',
+              title: 'product is unhided',
+              showConfirmButton: false,
+            })
+            setTimeout(() => {
+              location.reload()
+            }, 800)
+          }
+        }
+      })
+
+    })
+  }
+
 </script>

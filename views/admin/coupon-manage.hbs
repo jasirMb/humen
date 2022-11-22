@@ -1,0 +1,90 @@
+<body>
+
+
+    <div class="col-lg-10 ">
+
+        <div class="card">
+            <div class="card-body">
+
+                <p class="card-description mt-5">
+                <h1>COUPON MANAGEMENT</h1>
+                </p>
+
+                <form action="/admin/add-coupon" method="post">
+                    <div style="text-align:center ;">
+                        <div style=";" class="input-group  row">
+                            <input type="text" class="form-control rounded m-3" placeholder="enter coupon name"
+                                name="name" required="">
+
+                            <input type="number" class="form-control rounded m-3" placeholder="enter Discount"
+                                name="discount" required="">
+                        </div>
+                        <div style=";" class="input-group row">
+                            <input type="text" class="form-control rounded m-3" placeholder="enter coupon code"
+                                name="couponCode" required="">
+                            {{!-- <button type="submit" class="btn btn-outline-primary btn-sm">add category</button>
+                            --}}
+                            <input type="date" class="form-control rounded m-3" placeholder="enter expiry date"
+                                name="expDate" required="">
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary btn-lg me-5">add coupon</button>
+                    </div>
+
+                </form>
+                <table class="table table-striped mt-5">
+                    <thead>
+                        <tr>
+
+                            <th> Name </th>
+                            <th> Coupen Code </th>
+                            <th> Discount %</th>
+                            <th> Expiry Date </th>
+                            <th> Status </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {{#each coupons}}
+                        <tr>
+                            <td>{{this.name}}</td>
+                            <td>{{this.couponCode:}}</td>
+                            <td>{{this.discount}}</td>
+                            <td>{{this.expDate}}</td>
+
+
+{{#if this.isActive}}
+                            <td> <button class="btn btn-danger">Deactivate</button>
+                            </td>
+{{else}}
+                            <td> <button class="btn btn-danger">Activate</button>
+                            </td>
+{{/if}}
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+<script>
+    $(document).ready(function () {
+        var date_input = $('input[name="c-date"]'); //our date input has the name "date"
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+        var options = {
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        };
+        date_input.datepicker(options);
+    })
+</script>
