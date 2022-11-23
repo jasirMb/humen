@@ -15,6 +15,9 @@
                         <h1>MY ORDERS
                         </h1>
                     </div>
+                    {{#if nullOrder}}
+                    <h2>Sorry you havent ordered anything yet</h2>
+                    {{/if}}
                     {{#each userOrders}}
                     <div class="card-body p-4">
                         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -23,15 +26,22 @@
                             <h4 style="font-family:Arial, Helvetica, sans-serif ;">ORDER-ID:{{this._id}}</h4>
                             </p>
                             </p>
-                           
+
                             <div class="card" style="width: 18rem;">
-                                <div class="card-header" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-                                   <h5> ADDRESS:</h5>
+                                <div class="card-header"
+                                    style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                                    <h5> ADDRESS:</h5>
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" style="font-family: Arial, Helvetica, sans-serif;"><h5>{{this.deliveryAddress.[0].name}}</h5></li>
-                                    <li class="list-group-item"style="font-family: Arial, Helvetica, sans-serif;"><h5>{{this.deliveryAddress.[0].city}}</h5></li>
-                                    <li class="list-group-item"style="font-family: Arial, Helvetica, sans-serif;"><h5>{{this.deliveryAddress.[0].zip}}</h5></li>
+                                    <li class="list-group-item" style="font-family: Arial, Helvetica, sans-serif;">
+                                        <h5>{{this.deliveryAddress.[0].name}}</h5>
+                                    </li>
+                                    <li class="list-group-item" style="font-family: Arial, Helvetica, sans-serif;">
+                                        <h5>{{this.deliveryAddress.[0].city}}</h5>
+                                    </li>
+                                    <li class="list-group-item" style="font-family: Arial, Helvetica, sans-serif;">
+                                        <h5>{{this.deliveryAddress.[0].zip}}</h5>
+                                    </li>
                                 </ul>
                             </div>
                             {{!-- <p class="small   mb-0">Receipt Voucher : 1KAU9-84UIL</p> --}}
@@ -65,7 +75,7 @@
                                     <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
                                         <h4>
                                             <p class="  mb-0 " style="font-family:Arial, Helvetica, sans-serif ;">
-                                                	&#8377;{{this.price}}</p>
+                                                &#8377;{{this.price}}</p>
                                         </h4>
                                     </div>
                                 </div>
@@ -76,7 +86,7 @@
                                         <p class="  mb-0 ">
                                         <h5
                                             style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-                                            TOTAL :{{this.total}}	&#8377;</h5>
+                                            TOTAL :{{this.total}} &#8377;</h5>
                                         </p>
                                     </div>
                                     {{!-- {{#ifCond this.status '==' "Cancel" }}

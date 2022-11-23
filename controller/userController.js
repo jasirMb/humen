@@ -356,7 +356,7 @@ module.exports = {
             next(err)
         }
     },
-    quantityInc: async (req, res ,next) => {
+    quantityInc: async (req, res, next) => {
         try {
             proObj = req.params.proId
             // console.log(proObj+"incccccccccccccccccccccccc");
@@ -411,7 +411,7 @@ module.exports = {
             next(err)
         }
     },
-    getAllProducts: async (req, res ,next) => {
+    getAllProducts: async (req, res, next) => {
         try {
             let products = await productCollection.find({ archive: false }).lean()
             let categorys = await categorySchema.find().lean()
@@ -622,50 +622,16 @@ module.exports = {
     },
     toPayment: async (req, res, next) => {
         // try {
-            console.log("ajaxxxxxxxxxxxxxxxxxxxxxxxxxx");
-            if (req.session.user) {
-                let userId = req.session.user._id
-                // console.log(userId)
-                const findAddress = await addressSchema.findOne({ userId })
-                if (findAddress == null) {
-                    // user has no address
-                    const newAddress = new addressSchema({
-                        userId,
-                        address: [{
-                            name: req.body.name,
-                            phoneNo: req.body.phoneNo,
-                            address: req.body.address,
-                            city: req.body.city,
-                            state: req.body.state,
-                            country: req.body.country,
-                            zip: req.body.zip,
-                            payment: req.body.payment
-                        }],
-
-                    })
-                    await newAddress.save()
-
-                } else {
-                    // user dos not have a address collection
-                        findAddress.address.push({
-                            name: req.body.name,
-                            phoneNo: req.body.phoneNo,
-                            address: req.body.address,
-                            city: req.body.city,
-                            state: req.body.state,
-                            country: req.body.country,
-                            zip: req.body.zip,
-                            payment: req.body.payment
-                        });
-                        await findAddress.save()
-                }
-                //adding order schema
-                let cart = await cartSchema.findOne({ userId })
-                // console.log(cart);
-                let newDate = new Date().toJSON().slice(0, 10);
-                const newOrder = new orderSchema({
+        console.log("ajaxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        if (req.session.user) {
+            let userId = req.session.user._id
+            // console.log(userId)
+            const findAddress = await addressSchema.findOne({ userId })
+            if (findAddress == null) {
+                // user has no address
+                const newAddress = new addressSchema({
                     userId,
-                    deliveryAddress: [{
+                    address: [{
                         name: req.body.name,
                         phoneNo: req.body.phoneNo,
                         address: req.body.address,
@@ -673,48 +639,83 @@ module.exports = {
                         state: req.body.state,
                         country: req.body.country,
                         zip: req.body.zip,
-
+                        payment: req.body.payment
                     }],
-                    paymentType: req.body.payment,
-                    date: newDate,
-                    products: cart.products,
-                    total: cart.total,
-                    status : "Payment Failed"
+
                 })
-
-
-                // let products = newOder.products
-                // console.log(products);
-                await cart.remove()
-                await newOrder.save()
-                // console.log(req.body.payment + "heyyyyyyyyyy");
-                // console.log(orderListed + "orderrrrrrrrr");
-                req.session.orderId = newOrder._id
-                if (req.body.payment == 'COD') {req.body
-                    // req.session.orderId = newOrder._id
-
-                    console.log("coooooooooooooddddddddddddd");
-                    await orderSchema.findByIdAndUpdate(newOrder._id, { status: "Pending" })
-                    res.json({ codStatus: true })
-                } else {
-
-                    console.log("onnnnnnnnnnnnnnnnnnnnnnn");
-                    let options = {
-                        amount: newOrder.total * 100,  // amount in the smallest currency unit
-                        currency: "INR",
-                        receipt: "" + newOrder._id
-                    };
-                    instance.orders.create(options, function (err, order) {
-                        // console.log(order);
-                        res.json(order)
-                    });
-
-
-                }
+                await newAddress.save()
 
             } else {
-                res.redirect('/')
+                // user dos not have a address collection
+                findAddress.address.push({
+                    name: req.body.name,
+                    phoneNo: req.body.phoneNo,
+                    address: req.body.address,
+                    city: req.body.city,
+                    state: req.body.state,
+                    country: req.body.country,
+                    zip: req.body.zip,
+                    payment: req.body.payment
+                });
+                await findAddress.save()
             }
+            //adding order schema
+            let cart = await cartSchema.findOne({ userId })
+            // console.log(cart);
+            let newDate = new Date().toJSON().slice(0, 10);
+            const newOrder = new orderSchema({
+                userId,
+                deliveryAddress: [{
+                    name: req.body.name,
+                    phoneNo: req.body.phoneNo,
+                    address: req.body.address,
+                    city: req.body.city,
+                    state: req.body.state,
+                    country: req.body.country,
+                    zip: req.body.zip,
+
+                }],
+                paymentType: req.body.payment,
+                date: newDate,
+                products: cart.products,
+                total: cart.total,
+                status: "Payment Failed"
+            })
+
+
+            // let products = newOder.products
+            // console.log(products);
+            await cart.remove()
+            await newOrder.save()
+            // console.log(req.body.payment + "heyyyyyyyyyy");
+            // console.log(orderListed + "orderrrrrrrrr");
+            req.session.orderId = newOrder._id
+            if (req.body.payment == 'COD') {
+                req.body
+                // req.session.orderId = newOrder._id
+
+                console.log("coooooooooooooddddddddddddd");
+                await orderSchema.findByIdAndUpdate(newOrder._id, { status: "Pending" })
+                res.json({ codStatus: true })
+            } else {
+
+                console.log("onnnnnnnnnnnnnnnnnnnnnnn");
+                let options = {
+                    amount: newOrder.total * 100,  // amount in the smallest currency unit
+                    currency: "INR",
+                    receipt: "" + newOrder._id
+                };
+                instance.orders.create(options, function (err, order) {
+                    // console.log(order);
+                    res.json(order)
+                });
+
+
+            }
+
+        } else {
+            res.redirect('/')
+        }
         // } catch (error) {
         //     next(err)
         // }
@@ -735,7 +736,7 @@ module.exports = {
             next(err)
         }
     },
-    verifyPayment: async (req, res ,next) => {
+    verifyPayment: async (req, res, next) => {
         try {
             console.log("heloooooooooooooooooooooooooooooooooooooooo");
             let payment = req.body.payment
@@ -776,12 +777,18 @@ module.exports = {
                 // let productsOrder = await oderSchema.find({ userId: userId }).lean().populate('products.productId').exec()
                 // console.log(productsOrder[0].products[0].productId);
                 // ,products,orderAddress,productsOrder
-                res.render('user/myoders', { userOrders })
+                console.log(userOrders.length);
+                if (userOrders.length == 0) {
+                    res.render('user/empty-order')
+                } else {
+                    res.render('user/myoders', { userOrders, })
+                }
+
             } else {
                 res.redirect('/')
             }
         } catch (error) {
-            next(err)
+            next(error)
         }
     },
     cancelOrder: async (req, res, next) => {
@@ -823,7 +830,7 @@ module.exports = {
             next(err)
         }
     },
-    checkCoupon: async (req, res ,next) => {
+    checkCoupon: async (req, res, next) => {
         try {
             let code = req.params.code
             if (req.session.user) {

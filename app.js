@@ -111,7 +111,7 @@ app.use(function (req, res, next) {
 
 app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-    console.log(err);
+    // console.log(err);
     res.render('user/404');
 });
 

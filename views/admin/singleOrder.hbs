@@ -189,7 +189,7 @@
                                                 </td>
                                                 <td width="25%" align="left"
                                                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                                    	&#8377;{{this.price}}
+                                                    &#8377;{{this.price}}
                                                 </td>
                                             </tr>
                                             {{/each}}
@@ -208,7 +208,7 @@
                                                 </td>
                                                 <td width="25%" align="left"
                                                     style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
-                                                    	&#8377; {{orderList.total}}
+                                                    &#8377; {{orderList.total}}
                                                 </td>
                                             </tr>
                                         </table>
@@ -258,7 +258,7 @@
                                                                 style="color: #000000; background-color: #ffffff;border: 0ch; font-weight: 700;"
                                                                 name="status">
 
-                                                                <option >
+                                                                <option>
                                                                     {{orderList.status}}</option>
 
                                                                 <option style="color:rgb(0, 68, 253) ;">Placed
@@ -268,11 +268,14 @@
                                                                 <option style="color:rgb(0, 255, 0) ;">Delivered
                                                                 </option>
                                                                 <option style="color:#F44336 ;">Canceled</option>
-                                                                 <option style="color:rgb(249, 253, 0) ;">Pending
+                                                                <option style="color:rgb(249, 253, 0) ;">Pending
                                                                 </option>
                                                             </select>
+                                                            {{#ifCond orderList.status '!=' "Delivered" }}
                                                             <button
                                                                 class="btn btn-outline-primary btn-sm">UPDATE</button>
+                                                            {{/ifCond}}
+                                                            
                                                         </form>
 
 
@@ -289,11 +292,11 @@
                         <td align="center" style=" padding: 35px; background-color: #ff7361;" bgcolor="#1b9ba3">
                             <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"
                                 style="max-width:600px;">
-                                
+
                             </table>
                         </td>
                     </tr>
-                   
+
 </body>
 
 </html>
